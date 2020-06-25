@@ -1,0 +1,25 @@
+<div class="container-fluid bg-light h-100" *ngIf="active.children.length===0">
+    <div class="row">
+        <div class="col-3">
+        </div>
+        <div class="nameHead col-6 mt-5 text-center">
+            <h1><b>Hello {{name}}!!</b></h1>
+        </div>
+        <div class="col-3 mt-5">
+            <button class="btn btn-danger" (click)="logout()">Logout</button>
+        </div>
+        <div class="col-3"></div>
+        <div class="col-6 mt-5 h-100">
+            <ul class="users">
+                <li *ngFor="let user of alluser" class="mt-4">
+                    <span *ngIf="user?.Name != name" style="font-size: large;">{{user?.Name}}</span>
+                    <button *ngIf="user?.Name != name" type="button" class="btn btn-info w-25 float-right"
+                        (click)="chat(user?.Name)">Chat</button>
+                </li>
+            </ul>
+        </div>
+        <div class="col-3"></div>
+    </div>
+</div>
+
+<router-outlet></router-outlet>
